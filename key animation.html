@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #car {
+            position: relative;
+            left: 80%;
+            top: 0;
+            width: 20%;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Drive your own risk!!!</h1>
+<img id="car" src="asesst/img/car.png" alt="Car">
+
+<script src="../05-DOM/js/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).on('keydown', function(e) {
+
+        switch (e.key) {
+
+            case "ArrowLeft":
+                $('#car').animate({
+                    left: "-=20px"
+                }, 'fast');
+                break;
+
+            case "ArrowUp":
+                $('#car').animate({
+                    top: "-=20px"
+                }, 'fast');
+                break;
+
+            case "ArrowRight":
+                $('#car').animate({
+                    left: "+=20px"
+                }, 'fast');
+                break;
+
+            case "ArrowDown":
+                $('#car').animate({
+                    top: "+=20px"
+                }, 'fast');
+                break;
+        }
+    });
+
+</script>
+</body>
+</html>

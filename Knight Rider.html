@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Knight Rider</title>
+    <style>
+        body{
+            background-image:url("asesst/img/kitt-front-cropped-trimmed.gif");
+
+        }
+        h1{
+            color: white;
+            border-color: gold;
+            border-bottom-width: 3px;
+        }
+        #main{
+            position: absolute;
+            margin: auto;
+            left: 40%;
+            right: 60%;
+            top: 0;
+            bottom: 0;
+        }
+    #div1{
+    position: absolute;
+    top: 180px;
+    left: 0px;
+    }
+    #div2{
+    position: absolute;
+    top: 180px;
+    left:80px;
+    }
+    #div3{
+    position: absolute;
+    top: 180px;
+    left:160px;
+    }
+    #div4{
+    position: absolute;
+    top: 180px;
+    left:240px;
+
+    }
+    #div5{
+    position: absolute;
+    top: 180px;
+    left:320px;
+    }
+    </style>
+</head>
+<body>
+
+<hr>
+<h1>Knight Rider</h1>
+
+
+<div id="main">
+<div id="div1" style="width:80px;height:80px;display:block;"></div>
+<div id="div2" style="width:80px;height:80px;display:block;"></div>
+<div id="div3" style="width:80px;height:80px;display:block;"></div>
+<div id="div4" style="width:80px;height:80px;display:block;"></div>
+<div id="div5" style="width:80px;height:80px;display:block;"></div>
+
+    <embed src="asesst/audio/Knight-Rider-Theme-Song.mp3" width="180" height="90" loop="false" autostart="false" hidden="true" />
+
+</div>
+<hr>
+<script src="../02-DOM/js/jquery-3.4.1.min.js"></script>
+<script>
+
+    var option=true;
+    var count=0;
+    var colors = ['#F21B0B', '#F25B43', '#F28F94','#F2DEDC','#F2D7D9'];
+    setInterval(changeColor,200);
+
+    function changeColor(){
+        ++count;
+        if (option==true) {
+            var last=colors.pop();
+            colors.unshift(last);
+            for(var i in colors){
+
+                $($('div div')[i]).css('backgroundColor',colors[i]);
+            }
+            if (count==colors.length) {
+                option=false;
+                count=0;
+            }
+
+        }else {
+            var first=colors.shift();
+            colors.push(first);
+            for(var i in colors) {
+                $($('div div').fadeIn(1));
+                $($('div div')[i]).css('backgroundColor', colors[i]);
+            }if (count==colors.length) {
+                    option=true;
+                    count=0;
+                }
+        }
+
+
+
+    }
+
+</script>
+</body>
+</html>

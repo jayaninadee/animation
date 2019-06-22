@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<h1 id="title" style="font-size: 100px">Hello IJSE</h1>
+
+
+<script src="../02-DOM/js/jquery-3.4.1.min.js"></script>
+
+<script>
+    // colour
+
+    var i=0;
+    var colors = ['red', 'green', 'blue','yellow'];
+    var c=0;
+    // text
+    var title=$('#title').text();
+    setInterval(animateText,100);
+    setInterval(changeColor,100);
+
+    function changeColor(){
+        $('#title').css('color',colors[c]);
+        // $('#title').fadeIn("slow",300);
+        if (c==colors.length){
+            c=0;
+        }
+        c++;
+    }
+
+    function animateText() {
+
+        var prase = title.substr(0, i);
+        $('#title').text(prase).fadeIn("slow", 300);
+        ;
+        if (i == title.length) {
+            i = 0;
+        }
+        i++;
+    }
+
+    var sto=-1;
+     $(document).on("mousemove", function (e) {
+         $('#title').fadeIn(1);
+         $('#title').css('position','absolute');
+         $('#title').css('top',e.pageY);
+         $('#title').css('left',e.pageX);
+
+        // if("mouseleave"){
+        //     $(document).on("mouseleave", function (e) {
+        //         $('#title').fadeOut();
+        //
+        //     });
+        // }else{
+        //     $(document).on("mousemove", function (e) {
+        //         $('#title').fadeIn();
+        //
+        //     });
+        // }
+
+
+         var sto=setTimeout(fadeTitle,2000);
+         function fadeTitle(){
+             $('#title').fadeOut(300);
+         }
+
+     });
+
+    //     let move=null;
+    // $(document).mousemove( function (e) {
+    //     clearTimeout(move);
+    //     move=setTimeout(function () {
+    //         $('#title').fadeIn();
+    //
+    //     });
+    //     });
+
+
+    //     $(document).on("mousemove", function (e) {
+    //
+    // });
+    // $(document).mouseleave( function (e) {
+    //     $(document).on("mouseleave", function (e) {
+    //                 $('#title').fadeOut();
+    //
+    //             });
+    // });
+
+
+    var sto=-1;
+    $(document).on("mousemove", function (e) {
+        $('#title').fadeIn(1);
+        $('#title').css('position','absolute');
+        $('#title').css('top',e.pageY);
+        $('#title').css('left',e.pageX);
+
+
+        var sto=setTimeout(fadeTitle,2000);
+        function fadeTitle(){
+            $('#title').fadeOut(300);
+        }
+
+    });
+
+
+</script>
+
+</body>
+</html>

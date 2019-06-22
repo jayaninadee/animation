@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        #pacman {
+            position: relative;
+            left: 10%;
+            top: 0;
+            width: 20%;
+        }
+        h1{
+            color: white;
+            font-size:50px;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Play now!!!</h1>
+<img id="pacman" src="asesst/img/pacman2.gif" alt="Packman">
+
+<script src="../05-DOM/js/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).on('keydown', function(e) {
+
+        switch (e.key) {
+
+            case "ArrowLeft":
+                $('#pacman').animate({
+                    left: "-=20px"
+                }, 'fast');
+                break;
+
+            case "ArrowUp":
+                $('#pacman').animate({
+                    top: "-=20px"
+                }, 'fast');
+                break;
+
+            case "ArrowRight":
+                $('#pacman').animate({
+                    left: "+=20px"
+                }, 'fast');
+                break;
+
+            case "ArrowDown":
+                $('#pacman').animate({
+                    top: "+=20px"
+                }, 'fast');
+                break;
+        }
+    });
+
+</script>
+</body>
+</html>

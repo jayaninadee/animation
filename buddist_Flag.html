@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buddist Flag</title>
+    <style>
+        body{
+            background-image:url("asesst/img/bud.jpg" );
+
+        }
+        h1{
+            color: white;
+            border-color: gold;
+            border-bottom-width: 3px;
+        }
+        #main{
+            position: absolute;
+            margin: auto;
+            left: 20%;
+            right: 80%;
+
+
+        }
+        #div1{
+            position: absolute;
+            top: 50px;
+            left: 0px;
+        }
+        #div2{
+            position: absolute;
+            top: 50px;
+            left:120px;
+        }
+        #div3{
+            position: absolute;
+            top: 50px;
+            left:240px;
+        }
+        #div4{
+            position: absolute;
+            top: 50px;
+            left:360px;
+
+        }
+        #div5{
+            position: absolute;
+            top: 50px;
+            left:480px;
+        }
+        #divS1{
+            position: absolute;
+            top: 50px;
+            left: 600px;
+        }
+        #divS2{
+            position: absolute;
+            top: 140px;
+            left:600px;
+        }
+        #divS3{
+            position: absolute;
+            top: 230px;
+            left:600px;
+        }
+        #divS4{
+            position: absolute;
+            top: 320px;
+            left:600px;
+
+        }
+        #divS5{
+            position: absolute;
+            top: 410px;
+            left:600px;
+        }
+    </style>
+</head>
+<body>
+
+<hr>
+<h1>Buddist Flag</h1>
+
+
+<div id="main">
+    <div id="div1" style="width:120px;height:450px;display:block;"></div>
+    <div id="div2" style="width:120px;height:450px;display:block;"></div>
+    <div id="div3" style="width:120px;height:450px;display:block;"></div>
+    <div id="div4" style="width:120px;height:450px;display:block;"></div>
+    <div id="div5" style="width:120px;height:450px;display:block;"></div>
+
+    <div id="divS1" style="width:120px;height:90px;display:block;"></div>
+    <div id="divS2" style="width:120px;height:90px;display:block;"></div>
+    <div id="divS3" style="width:120px;height:90px;display:block;"></div>
+    <div id="divS4" style="width:120px;height:90px;display:block;"></div>
+    <div id="divS5" style="width:120px;height:90px;display:block;"></div>
+
+</div>
+<hr>
+<script src="../05-DOM/js/jquery-3.4.1.min.js"></script>
+<script>
+
+
+    var colors = ['blue', 'yellow', 'red','white','orange','blue', 'yellow', 'red','white','orange'];
+    setInterval(changeColor,800);
+
+    function changeColor(){
+
+            var last=colors.pop();
+            colors.unshift(last);
+            for(var i in colors){
+
+                $($('div div')[i]).css('backgroundColor',colors[i]);
+            }
+
+    }
+
+</script>
+
+</body>
+</html>

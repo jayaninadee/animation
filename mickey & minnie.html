@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mickey & Minnie</title>
+    <style>
+        #mickey {
+            position: relative;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+
+<hr>
+<h1>Mickey & Minnie</h1>
+<hr>
+<img id="mickey" src="asesst/img/micky.gif">
+
+
+<script>
+       let option=true;
+    mickey.onclick = function() {
+        let start = Date.now();
+        let end = Date.now();
+
+        if (option==true){
+            let timer = setInterval(function() {
+            let timePassed = Date.now() - start;
+
+            mickey.style.left = timePassed / 5 + 'px';
+
+            if (timePassed > 5000) clearInterval(timer);
+
+        }, 20);
+
+            option=false;
+
+        } else (option==false)
+        {
+
+            let time = setInterval(function () {
+                let timePassed = Date.now() - end;
+
+                mickey.style.left = timePassed / 5 + 'px';
+
+                if (timePassed > 5000) clearInterval(time);
+
+            }, 20);
+            option=true;
+        }
+    }
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
