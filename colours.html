@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:height="http://www.w3.org/1999/xhtml" xmlns:width="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Colour looping</title>
+
+    <style>
+        body{
+            background: linear-gradient(to right, gold,yellow,gold);
+        }
+        #kotu{
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            top: 0;
+            left:0;
+            right:0;
+            bottom: 0;
+            margin: auto;
+            border: 1px solid black;
+        }
+        #btns{
+            color: deeppink;
+            background-color: yellow;
+
+
+        }
+
+    </style>
+</head>
+<body>
+<button id="btns" style="width: 80px; height: 50px;">Start</button>
+<button id="btns2" style="width: 80px; height: 50px;">Stop</button>
+<div id="kotu">
+
+</div>
+
+<h1></h1>
+
+
+<script src="../../js/jquery-3.2.1.min.js"></script>
+
+
+<script>
+
+    var colours=['blue','red','pink','yellow','orange'];
+    var i =0;
+    var id;
+    $('#btns').click(function () {
+
+        id=setInterval(test,400);
+        function test(){
+            $('#kotu').css('background-color',colours[i]);
+            i++;
+            if (i==colours.length){
+                i=0;
+            }
+        }
+
+
+    });
+    $('#btns2').click(function () {
+        clearInterval(id);
+    });
+
+</script>
+
+</body>
+</html>

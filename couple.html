@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        body{
+            margin: 0;
+        }
+
+        .wrapper{
+            height: 100px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .wrapper img{
+            height: 120px;
+        }
+        #img-girl{
+             transform: rotateY(180deg);
+         }
+        #img-boy{
+            transform: rotateY(180deg);
+        }
+
+
+        h2{
+
+            color: blue;
+            margin: auto;
+            text-align: center;
+
+        }
+        hr{
+            position: absolute;
+            width: 100%;
+            border-left: 0;
+            border-right: 0
+        }
+    </style>
+</head>
+<body>
+
+
+<hr style="top: 200px">
+<div class="wrapper">
+
+    <img id="img-boy" src="asesst/img/boy.gif">
+    <img id="img-girl" src="asesst/img/girl.gif">
+    <h2>Please, just wait for a second..!</h2>
+</div>
+
+<hr style="bottom: 240px;">
+
+<script src="../../js/jquery-3.2.1.min.js"></script>
+<script>
+
+
+    const imgBoy = $('#img-boy');
+    const imgGirl = $('#img-girl');
+    const wrapper = $('.wrapper');
+    const windowWidth = $(window).width() - 350;
+    let position = 0;
+
+    let timer = setInterval(function () {
+        moveLeft();
+    }, 10);
+
+
+
+
+    function moveRight() {
+        if (position-- >= 0) {
+            $('#img-boy').css('right', position + 'px');
+            $('#img-girl').css('right', (position + 150) + 'px');
+            setTimeout(moveRight, 0.1);
+        }else{
+            imgGirl.css('transform','rotateY(180deg)');
+            imgBoy.css('transform','rotateY(180deg)');
+
+            imgGirl.attr('src','asesst/img/girl.gif');
+            imgBoy.attr('src','asesst/img/boy.gif');
+            changeText();
+            moveLeft();
+        }
+    }
+
+    function moveLeft() {
+        position++;
+        if (position < windowWidth) {
+            wrapper.css('left', position+'px');
+        } else {
+            imgGirl.css('transform','none');
+            imgBoy.css('transform','none');
+
+            imgGirl.attr('src','asesst/img/girl.gif');
+             imgBoy.attr('src','asesst/img/boy.gif');
+             changeText();
+            moveRight();
+
+        }
+    }
+
+    var move=true;
+    function changeText() {
+        var h2=document.getElementsByTagName("h2");
+
+       if (move) {
+            h2[0].innerHTML=" Don't follow me..! I am OK. ";
+            $('h2').css('color','red');
+            move=false;
+        }else {
+            h2[0].innerHTML="Please, wait for a second..!";
+           $('h2').css('color','blue');
+            move=true;
+        }
+    }
+
+</script>
+</body>
+</html>

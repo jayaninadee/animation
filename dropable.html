@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Droppable - Default functionality</title>
+    <link rel="stylesheet" href="../../css/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="../../css/jquery-ui.structure.min.css">
+
+    <style>
+        #triangle  {
+            width: 0;
+            height: 0;
+            border-left: 300px solid transparent;
+            border-right: 300px solid transparent;
+            border-bottom: 60px solid red;
+                    }
+        #draggable {
+            width: 200px;
+            height: 150px;
+            padding: 0.5em;
+            float: right;
+        }
+        #droppable {
+            width: 470px;
+            height: 200px;
+            float: left;
+            margin-left: 50px; }
+    </style>
+
+
+</head>
+<body>
+<h3>Drag Minnie to home..</h3>
+<div id="draggable" class="ui-widget-content">
+    <img src="asesst/img/minne.gif" width="100px">
+</div>
+
+<div id="triangle"></div>
+<div id="droppable" class="ui-widget-header">
+    <img src="asesst/img/micky.gif" width="175px">
+<p> Where are you?..</p>
+</div>
+<script src="../../js/jquery-3.2.1.min.js"></script>
+<script src="../../js/jquery-ui.min.js"></script>
+
+<script>
+    $( function() {
+        $( "#draggable" ).draggable();
+        $( "#droppable" ).droppable({
+            drop: function( event, ui ) {
+                $( this )
+                    .addClass( "ui-state-highlight" )
+                    .find( "p" )
+                    .html( "Found! Thank You.." );
+            }
+        });
+    } );
+</script>
+</body>
+</html>

@@ -5,116 +5,330 @@
     <title>Buddist Flag</title>
     <style>
         body{
-            background-image:url("asesst/img/bud.jpg" );
+            margin: 0;
+            background: linear-gradient(133deg, #54a3ff, #0a66ff, #ffe40a, #ff0a0a, #ffffff, #fda718, #ffb73f);
+            background-size: 20000% 20000%;
 
+            -webkit-animation: AnimationName 14s ease infinite;
+            -moz-animation: AnimationName 14s ease infinite;
+            animation: AnimationName 14s ease infinite;
         }
+        @-webkit-keyframes AnimationName {
+            0%{background-position:0% 52%}
+            50%{background-position:100% 49%}
+            100%{background-position:0% 52%}
+        }
+        @-moz-keyframes AnimationName {
+            0%{background-position:0% 52%}
+            50%{background-position:100% 49%}
+            100%{background-position:0% 52%}
+        }
+        @keyframes AnimationName {
+            0%{background-position:0% 52%}
+            50%{background-position:100% 49%}
+            100%{background-position:0% 52%}
+        }
+
+
+        .flag {
+            position: relative;
+            display: inline-block;
+            margin: 2em 3em @flagSize;
+            width: @flagSize;
+            height: @flagSize;
+            border: 1px solid #bbb;
+            border-left-color: white;
+            box-sizing: border-box;
+            box-shadow: 2px 5px 14px 0px rgba(0,0,0,0.4);
+            -webkit-backface-visibility: hidden;
+            -webkit-perspective: 1000;
+            -webkit-transform-style: preserve3d;
+            -webkit-transform-origin: 0 250px;
+            -webkit-transform: translate3d(0, 0, 0) rotateZ(5deg) rotateY(-22deg);
+
+            -webkit-animation-name: wave;
+            -webkit-animation-duration: 8s;
+            -webkit-animation-timing-function: cubic-bezier(.16,.14,.82,.73);
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+
+        &:nth-child(odd) {
+             -webkit-animation-delay: 1s;
+         }
+
+        &:before {
+             position: absolute;
+             content: "";
+             height: @flagSize*2;
+             left: -5px;
+             top: -3px;
+             width: 6px;
+             border-right: 1px solid white;
+             border-radius: 3px;
+             background-color: #444;
+             box-shadow: -3px 3px 8px 0px rgba(0,0,0,0.4);
+         }
+
+        &.rect {
+             width: @flagSize*1.4;
+
+         }
+        }
+
+        .flag-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            -webkit-box-reflect: below 60px -webkit-gradient(linear,left top,left bottom,from(transparent),color-stop(70%,transparent),to(rgba(255,255,255,0.05)));
+
+        &.ch {
+             border: 15px solid @colorRed;
+             background-color: @colorRed;
+             background-image:
+                     linear-gradient(90deg, white 50%, transparent 50%),
+                     linear-gradient(white 50%, transparent 50%);
+             background-size: @flagSize/2 @flagSize/2;
+             background-position: 100% 100%;
+         }
+
+        &.fr {
+             background-color: @colorRed;
+             background-image:
+                     linear-gradient( 90deg, @colorBlue 33.3%, transparent 33.3%),
+                     linear-gradient(90deg, white 66.6%, transparent 66.6%);
+         }
+
+        &.us {
+             background-color: @colorRed;
+             background-image: linear-gradient(@colorRed 50%, white 50%);
+             background-size: 100% 15.38%;
+             background-repeat: repeat-y;
+
+
+        &:before, &:after {
+                       position: absolute;
+                       max-width: 52%;
+                       overflow: hidden;
+                       word-break: break-word;
+                       text-align: center;
+                       font-size: 7px;
+                       color: white;
+                       line-height: 1.9em;
+                       letter-spacing: 1em;
+                   }
+        &:before {
+             content: "\2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 ";
+             background-color: @colorBlueUs;
+             border-left: 3px solid @colorBlueUs;
+         }
+
+        &:after {
+             content: "\2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605 ";
+             box-sizing: border-box;
+             margin-left: 3px;
+             padding: .9em 1em;
+         }
+        }
+
+        &.pl {
+             background-color: @colorRed;
+             background-image:
+                     linear-gradient( white 50%, transparent 50%);
+         }
+
+        &.de {
+             background-color: gold;
+             background-image:
+                     linear-gradient( black 33.3%, transparent 33.3%),
+                     linear-gradient(red 66.6%, transparent 66.6%);
+         }
+
+        &.ru {
+             background-color: red;
+             background-image:
+                     linear-gradient( blue 33.3%, transparent 33.3%),
+                     linear-gradient(white 66.6%, transparent 66.6%);
+         }
+
+        &.jp {
+             background-color: white;
+             background-image:
+                     radial-gradient(circle, @colorRed 40%, transparent 0);
+
+         }
+        }
+
+        .flag-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            background-image:
+                    -webkit-gradient(
+                            linear,
+                            0 -25%,
+                            100% top,
+                            color-stop(0%,rgba(255,255,255,0)),
+                            color-stop(20%,rgba(255,255,255,0)),
+                            color-stop(30%,rgba(0,0,0,.04)),
+                            color-stop(40%,rgba(255,255,255,.2)),
+                            color-stop(60%,rgba(255,255,255,0)),
+                            color-stop(65%,rgba(255,255,255,.2)),
+                            color-stop(80%,rgba(0,0,0,.05)),
+                            color-stop(100%,rgba(255,255,255,0)));
+
+            background-size: 200%;
+
+            -webkit-animation-name: flutter;
+            -webkit-animation-duration: 8s;
+            -webkit-animation-timing-function: cubic-bezier(.16,.14,.82,.73);
+            -webkit-animation-iteration-count: infinite;
+        }
+
+
+        @-webkit-keyframes flutter {
+
+            0% {
+                background-position: -200% 0px;
+            }
+
+            30% {
+                background-position: -60% 5px;
+            }
+
+            70% {
+                background-position: 70% -5px;
+            }
+
+            100% {
+                background-position: 200% 0px;
+            }
+        }
+
+        @-webkit-keyframes wave {
+
+            0% {
+                box-shadow: 4px 5px 5px 0 rgba(0,0,0,0.1);
+                -webkit-transform: translate3d(0, 0, 0) rotateZ(5deg) rotateY(22deg);
+
+            }
+
+            20% {
+                box-shadow: 4px 5px 15px 0 rgba(0,0,0,0.1);
+                -webkit-transform: translate3d(0, 0, 0) rotateZ(5deg) rotateY(0deg);
+            }
+
+            40% {
+                box-shadow: 4px 5px 20px 0 rgba(0,0,0,0.4);
+                -webkit-transform: translate3d(0, 0, 0) rotateZ(6deg) rotateY(-22deg);
+            }
+
+            60% {
+                box-shadow: 4px 5px 5px 0 rgba(0,0,0,0.1);
+                -webkit-transform: translate3d(0, 0, 0) rotateZ(5deg) rotateY(0deg);
+            }
+
+            80% {
+                box-shadow: 4px 5px 5px 0 rgba(0,0,0,0.3);
+                -webkit-transform: translate3d(0, 0, 0) rotateZ(5deg) rotateY(16deg);
+            }
+
+            100% {
+                box-shadow: 4px 5px 5px 0 rgba(0,0,0,0.1);
+                -webkit-transform: translate3d(0, 0, 0) rotateZ(5deg) rotateY(22deg);
+            }
+        }
+
         h1{
-            color: white;
-            border-color: gold;
-            border-bottom-width: 3px;
-        }
-        #main{
             position: absolute;
+            text-align: center;
             margin: auto;
-            left: 20%;
-            right: 80%;
+            top: 60px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
 
+        .container{
+            width: 40vw;
+            height: 30vh;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
 
+        .container section{
+            width: calc(100% / 6);
+            height: 100%;
+            float: left;
         }
-        #div1{
-            position: absolute;
-            top: 50px;
-            left: 0px;
-        }
-        #div2{
-            position: absolute;
-            top: 50px;
-            left:120px;
-        }
-        #div3{
-            position: absolute;
-            top: 50px;
-            left:240px;
-        }
-        #div4{
-            position: absolute;
-            top: 50px;
-            left:360px;
 
+        .container section aside{
+            height: calc(100% / 5);
         }
-        #div5{
-            position: absolute;
-            top: 50px;
-            left:480px;
-        }
-        #divS1{
-            position: absolute;
-            top: 50px;
-            left: 600px;
-        }
-        #divS2{
-            position: absolute;
-            top: 140px;
-            left:600px;
-        }
-        #divS3{
-            position: absolute;
-            top: 230px;
-            left:600px;
-        }
-        #divS4{
-            position: absolute;
-            top: 320px;
-            left:600px;
 
-        }
-        #divS5{
-            position: absolute;
-            top: 410px;
-            left:600px;
+        .blur{
+            filter: blur(3px);
         }
     </style>
 </head>
 <body>
 
-<hr>
 <h1>Buddist Flag</h1>
 
-
-<div id="main">
-    <div id="div1" style="width:120px;height:450px;display:block;"></div>
-    <div id="div2" style="width:120px;height:450px;display:block;"></div>
-    <div id="div3" style="width:120px;height:450px;display:block;"></div>
-    <div id="div4" style="width:120px;height:450px;display:block;"></div>
-    <div id="div5" style="width:120px;height:450px;display:block;"></div>
-
-    <div id="divS1" style="width:120px;height:90px;display:block;"></div>
-    <div id="divS2" style="width:120px;height:90px;display:block;"></div>
-    <div id="divS3" style="width:120px;height:90px;display:block;"></div>
-    <div id="divS4" style="width:120px;height:90px;display:block;"></div>
-    <div id="divS5" style="width:120px;height:90px;display:block;"></div>
-
-</div>
 <hr>
-<script src="../05-DOM/js/jquery-3.4.1.min.js"></script>
+
+<div class="container  flag rect">
+    <div class="flag-pattern fr">
+    <div class="flag-wave">
+    <section id="s1" style="background-color: #0000FF"></section>
+    <section id="s2" style="background-color: #FFFF00"></section>
+    <section id="s3" style="background-color: #FF0000"></section>
+    <section id="s4" style="background-color: #FFFFFF"></section>
+    <section id="s5" style="background-color: #FF9900"></section>
+    <section>
+        <aside id="a1" style="background-color: #0000FF"></aside>
+        <aside id="a2" style="background-color: #FFFF00"></aside>
+        <aside id="a3" style="background-color: #FF0000"></aside>
+        <aside id="a4" style="background-color: #FFFFFF"></aside>
+        <aside id="a5" style="background-color: #FF9900"></aside>
+    </section>
+    </div>
+    </div>
+</div>
+
+<script src="../../js/jquery-3.2.1.min.js"></script>
 <script>
 
 
-    var colors = ['blue', 'yellow', 'red','white','orange','blue', 'yellow', 'red','white','orange'];
-    setInterval(changeColor,800);
 
-    function changeColor(){
 
-            var last=colors.pop();
-            colors.unshift(last);
-            for(var i in colors){
+    var s_array = [ $('#s1'), $('#s2'), $('#s3'), $('#s4'), $('#s5')];
 
-                $($('div div')[i]).css('backgroundColor',colors[i]);
-            }
+    var a_array = [ $('#a1'), $('#a2'), $('#a3'), $('#a4'), $('#a5')];
 
+    setInterval(function () {
+        move(s_array);
+        move(a_array);
+    }, 800);
+
+    function move(array) {
+        let lastItem = array.shift();
+        array.push(lastItem);
+        for (let i of array) {
+            i.removeClass('blur');
+        }
+        array[0].addClass('blur');
     }
 
 </script>
+
 
 </body>
 </html>

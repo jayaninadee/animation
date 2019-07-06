@@ -4,6 +4,32 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        body {
+            background: linear-gradient(215deg, #20f5be, #f9bc24, #f52020, #f5f020, #f520ed, #d76ec1, #6e8cd7, #12c4ec);
+            background-size: 1600% 1600%;
+
+            -webkit-animation: AnimationName 21s ease infinite;
+            -moz-animation: AnimationName 21s ease infinite;
+            animation: AnimationName 21s ease infinite;
+        }
+        @-webkit-keyframes AnimationName {
+            0%{background-position:24% 0%}
+            50%{background-position:77% 100%}
+            100%{background-position:24% 0%}
+        }
+        @-moz-keyframes AnimationName {
+            0%{background-position:24% 0%}
+            50%{background-position:77% 100%}
+            100%{background-position:24% 0%}
+        }
+        @keyframes AnimationName {
+            0%{background-position:24% 0%}
+            50%{background-position:77% 100%}
+            100%{background-position:24% 0%}
+        }
+
+
+
         #car {
             position: relative;
             left: 80%;
@@ -17,7 +43,7 @@
 <h1>Drive your own risk!!!</h1>
 <img id="car" src="asesst/img/car.png" alt="Car">
 
-<script src="../05-DOM/js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery-3.2.1.min.js"></script>
 <script>
     $(document).on('keydown', function(e) {
 

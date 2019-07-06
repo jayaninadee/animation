@@ -4,63 +4,100 @@
     <meta charset="UTF-8">
     <title>Mickey & Minnie</title>
     <style>
-        #mickey {
-            position: relative;
-            cursor: pointer;
+        body{
+            margin: 0;
+            background-image: url("asesst/img/tree.jpg");
         }
+
+        .wrapper{
+            height: 150px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .wrapper img{
+            height: 140px;
+        }
+
+        h1{
+            right: 0;
+            left: 0;
+            top: 150px;
+            bottom: 0;
+            margin: auto;
+            text-align: center;
+            position: absolute;
+        }
+        hr{
+            position: absolute;
+            width: 100%;
+            border-left: 0;
+            border-right: 0
+        }
+
     </style>
 </head>
 <body>
 
 
 <hr>
-<h1>Mickey & Minnie</h1>
+<h1>Mickey Mouse</h1>
 <hr>
-<img id="mickey" src="asesst/img/micky.gif">
+<div class="wrapper">
+
+    <img id="mickey" src="asesst/img/micky.gif">
 
 
+</div>
+<script src="../../js/jquery-3.2.1.min.js"></script>
 <script>
-       let option=true;
-    mickey.onclick = function() {
-        let start = Date.now();
-        let end = Date.now();
 
-        if (option==true){
-            let timer = setInterval(function() {
-            let timePassed = Date.now() - start;
 
-            mickey.style.left = timePassed / 5 + 'px';
+    const imgMickey = $('#mickey');
 
-            if (timePassed > 5000) clearInterval(timer);
+    const wrapper = $('.wrapper');
+    const windowWidth = $(window).width() - 350;
+    let position = 0;
 
-        }, 20);
+    let timer = setInterval(function () {
+        moveLeft();
+    }, 10);
 
-            option=false;
 
-        } else (option==false)
-        {
 
-            let time = setInterval(function () {
-                let timePassed = Date.now() - end;
 
-                mickey.style.left = timePassed / 5 + 'px';
+    function moveRight() {
+        if (position-- >= 0) {
+            $('#mickey').css('right', position + 'px');
 
-                if (timePassed > 5000) clearInterval(time);
+            setTimeout(moveRight, 0.1);
+        }else{
+            imgMickey.css('transform','none');
 
-            }, 20);
-            option=true;
+
+            imgMickey.attr('src','asesst/img/micky.gif');
+            moveLeft();
+        }
+    }
+
+    function moveLeft() {
+        position++;
+        if (position < windowWidth) {
+            wrapper.css('left', position+'px');
+        } else {
+            imgMickey.css('transform','rotateY(180deg)');
+
+            imgMickey.attr('src','asesst/img/micky.gif');
+            moveRight();
+
         }
     }
 
 
 
-
-
 </script>
-
-
-
-
-
 </body>
 </html>
